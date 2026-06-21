@@ -30,9 +30,14 @@ app.use("/uploads", express.static(uploadPath));
 app.use("/api/auth", authRoutes);
 app.use("/api/items", itemRoutes);
 
-// HOME
+// HOME ROUTE
 app.get("/", (req, res) => {
   res.send("Smart Lost & Found Server Running");
+});
+
+// ✅ HEALTH CHECK ROUTE (ADDED)
+app.get("/healthz", (req, res) => {
+  res.status(200).send("OK");
 });
 
 // ERROR HANDLER
