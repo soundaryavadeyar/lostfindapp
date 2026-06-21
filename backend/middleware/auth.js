@@ -8,17 +8,18 @@ const verifyToken = (req, res, next) => {
   }
 
   try {
-    // remove Bearer if present
+    // Remove Bearer safely
     if (token.startsWith("Bearer ")) {
       token = token.split(" ")[1];
     }
 
-    const decoded = jwt.verify(token, process.env.SECRET_KEY);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-  req.user = {
-  id: decoded.id || decoded.userId || decoded._id,
-  role: decoded.role
-};
+    req.user = {
+      id: decoded.id || decoded.userId || decoded._id,
+      role: decoded.role
+    };
+
     next();
 
   } catch (error) {
