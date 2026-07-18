@@ -69,9 +69,9 @@ function Items() {
             <div className="col-md-4 mb-3" key={item._id}>
               <div className="card shadow-sm">
 
-                {item.image && (
+{item.image && (
   <img
-    src={`http://localhost:5000/uploads/${item.image}`}
+    src={`https://lostfindapp-backend.onrender.com/uploads/${item.image}`}
     className="card-img-top"
     alt={item.itemName}
     style={{
@@ -79,6 +79,10 @@ function Items() {
       height: "250px",
       objectFit: "contain",
       backgroundColor: "#f8f9fa"
+    }}
+    onError={(e) => {
+      console.log("Image failed:", item.image);
+      e.target.style.display = "none";
     }}
   />
 )}
