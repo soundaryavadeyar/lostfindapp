@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://lostfindapp-backend.onrender.com/api",
 });
 
 export const getAuthHeader = () => {
@@ -9,8 +9,8 @@ export const getAuthHeader = () => {
 
   return {
     headers: {
-      Authorization: `Bearer ${token}`
-    }
+      Authorization: `Bearer ${token}`,
+    },
   };
 };
 
