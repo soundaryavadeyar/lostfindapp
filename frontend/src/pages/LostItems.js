@@ -9,14 +9,16 @@ function LostItems() {
     fetchItems();
   }, []);
 
-  const fetchItems = async () => {
-    try {
-      const res = await axios.get("http://localhost:5000/items");
-      setItems(res.data);
-    } catch (error) {
-      console.log("Error:", error);
-    }
-  };
+ const fetchItems = async () => {
+  try {
+    const res = await axios.get(
+      "https://lostfindapp-backend.onrender.com/api/items"
+    );
+    setItems(res.data);
+  } catch (error) {
+    console.log("Error:", error);
+  }
+};
 
   const filteredItems = items.filter((item) =>
     item.itemName.toLowerCase().includes(search.toLowerCase())
@@ -43,14 +45,14 @@ function LostItems() {
               <div className="card shadow m-3">
                 {item.image && (
                   <img
-                    src={`http://localhost:5000/uploads/${item.image}`}
-                    alt={item.itemName}
-                    className="card-img-top"
-                    style={{
-                      height: "220px",
-                      objectFit: "cover"
-                    }}
-                  />
+  src={`https://lostfindapp-backend.onrender.com/uploads/${item.image}`}
+  alt={item.itemName}
+  className="card-img-top"
+  style={{
+    height: "220px",
+    objectFit: "cover",
+  }}
+/>
                 )}
 
                 <div className="card-body">
