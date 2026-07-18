@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API, { getAuthHeader } from "../api/api";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://lostfindapp-backend.onrender.com";
 
 function FoundItems() {
   const [items, setItems] = useState([]);
